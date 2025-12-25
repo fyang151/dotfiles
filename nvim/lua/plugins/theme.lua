@@ -13,7 +13,7 @@ local bluloco = {
   priority = 1000,
   dependencies = { 'rktjmp/lush.nvim' },
   config = function()
-      require("bluloco").setup({ style = "dark" })
+      require("bluloco").setup({ style = "light" })
       vim.cmd.colorscheme("bluloco")
   end,
 }
