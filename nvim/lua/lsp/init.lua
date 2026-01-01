@@ -19,7 +19,12 @@ function M.setup()
         },
     }
 
+    vim.lsp.config.clangd = {
+        on_attach = on_attach,
+    }
+
     vim.lsp.enable("lua_ls")
+    vim.lsp.enable("clangd")
 end
 
 return M

@@ -113,7 +113,7 @@ input {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 12
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -373,7 +373,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+S hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -401,22 +401,22 @@ binds {
 
     Mod+D repeat=false { close-window; }
 
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
+    Mod+Left  { focus-column-left; }
     Mod+J     { focus-window-down; }
+    Mod+Down  { focus-window-down; }
     Mod+K     { focus-window-up; }
+    Mod+Up    { focus-window-up; }
     Mod+L     { focus-column-right; }
+    Mod+Right { focus-column-right; }
 
+    Mod+Shift+H     { move-column-left; }
     Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+J     { move-window-down; }
     Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+K     { move-window-up; }
     Mod+Shift+Up    { move-window-up; }
     Mod+Shift+Right { move-column-right; }
-    Mod+Shift+H     { move-column-left; }
-    Mod+Shift+J     { move-window-down; }
-    Mod+Shift+K     { move-window-up; }
     Mod+Shift+L     { move-column-right; }
 
     // Alternative commands that move across workspaces when reaching
@@ -457,13 +457,15 @@ binds {
     // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
     // ...
 
-    Mod+Page_Down      { focus-workspace-down; }
-    Mod+Page_Up        { focus-workspace-up; }
+    Mod+Alt+J          { focus-workspace-down; }
     Mod+U              { focus-workspace-down; }
+    Mod+Page_Down      { focus-workspace-down; }
+    Mod+Alt+K          { focus-workspace-up; }
     Mod+I              { focus-workspace-up; }
+    Mod+Page_Up        { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+I         { move-column-to-workspace-up; }
 
     // Alternatively, there are commands to move just a single window:
@@ -543,8 +545,8 @@ binds {
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
     // If the window is already in a column, they will expel it out.
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Alt+H  { consume-or-expel-window-left; }
+    Mod+Alt+L { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
     Mod+Comma  { consume-window-into-column; }
