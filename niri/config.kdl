@@ -169,13 +169,13 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#aaaaaa"
+        active-color "#999999"
 
         // Color of the ring on inactive monitors.
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#050505"
+        inactive-color "#bbbbbb"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -312,7 +312,7 @@ animations {
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 
 window-rule {
-	opacity 0.9
+	opacity 0.867
 	geometry-corner-radius 12
 	clip-to-geometry true
 }
@@ -431,14 +431,14 @@ binds {
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
-    Mod+Ctrl+Left  { focus-monitor-left; }
-    Mod+Ctrl+Down  { focus-monitor-down; }
-    Mod+Ctrl+Up    { focus-monitor-up; }
-    Mod+Ctrl+Right { focus-monitor-right; }
     Mod+Ctrl+H     { focus-monitor-left; }
+    Mod+Ctrl+Left  { focus-monitor-left; }
     Mod+Ctrl+J     { focus-monitor-down; }
+    Mod+Ctrl+Down  { focus-monitor-down; }
     Mod+Ctrl+K     { focus-monitor-up; }
+    Mod+Ctrl+Up    { focus-monitor-up; }
     Mod+Ctrl+L     { focus-monitor-right; }
+    Mod+Ctrl+Right { focus-monitor-right; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
@@ -472,10 +472,10 @@ binds {
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
     // ...
 
-    Mod+Shift+Page_Down { move-workspace-down; }
-    Mod+Shift+Page_Up   { move-workspace-up; }
     Mod+Shift+U         { move-workspace-down; }
+    Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.
