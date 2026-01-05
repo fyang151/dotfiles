@@ -1,19 +1,41 @@
+local lsp = require("lsp")
+
 return {
-    {
-        "williamboman/mason.nvim",
-        opts = {},
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        dependencies = { "williamboman/mason.nvim" },
-        opts = {
-            ensure_installed = { "lua_ls", "clangd" },
-        },
-    },
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            require("lsp").setup()
-        end,
-    },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      for server, config in pairs(lsp.servers) do
+        vim.lsp.config(server, {
+          on_attach = lsp.on_attach,
+          settings = config.settings,
+          cmd = config.cmd,
+        })
+
+        vim.lsp.enable(server)
+      end
+    end,
+  },
+  {
+    "williamboman/mason.nvim",
+    cmd = "Mason",
+    config = true,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = vim.tbl_keys(lsp.servers),
+      })
+    end,
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("mason-tool-installer").setup({
+        ensure_installed = lsp.formatters,
+      })
+    end,
+  },
 }
