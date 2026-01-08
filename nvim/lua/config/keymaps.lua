@@ -5,4 +5,8 @@ vim.keymap.set({ "n", "v" }, "K", "4k", { noremap = true, silent = true })
 vim.keymap.set("n", "gJ", "J", { noremap = true, silent = true })
 vim.keymap.set("n", "gK", "K", { noremap = true, silent = true })
 
+-- format
 vim.keymap.set("n", "<space>f", function() require('conform').format() end)
+
+-- open diagnostic float
+vim.keymap.set("n", "<space>h", function() vim.diagnostic.open_float() end);
