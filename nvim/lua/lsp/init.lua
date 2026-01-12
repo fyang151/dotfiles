@@ -9,11 +9,13 @@ M.servers = {
     },
   },
   clangd = {},
+  tsgo = {},
 }
 
 M.formatters = {
   "stylua",
   "clang-format",
+  "prettierd",
 }
 
 return M

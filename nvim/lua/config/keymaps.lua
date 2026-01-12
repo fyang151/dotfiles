@@ -10,3 +10,9 @@ vim.keymap.set("n", "<space>f", function() require('conform').format() end)
 
 -- open diagnostic float
 vim.keymap.set("n", "<space>h", function() vim.diagnostic.open_float() end);
+
+-- Oil
+vim.keymap.set("n", "<space>o", "<cmd>Oil<CR>");
+
+-- ToggleTerm
+vim.keymap.set({ "n", "t" }, "<C-j>", function() require("toggleterm").toggle() end, { noremap = true });
