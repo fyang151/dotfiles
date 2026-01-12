@@ -11,6 +11,7 @@ vim.opt.showmode = false
 vim.opt.breakindent = true
 
 vim.opt.clipboard = "unnamedplus"
+vim.opt.fillchars = { eob = " " }
 
 -- sync with system clipboard on focus gain and lost
 -- this resolves slow startup times on WSL2
@@ -23,9 +24,9 @@ vim.opt.clipboard = "unnamedplus"
 --   command = [[call setreg("@", getreg("+"))]],
 -- })
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
