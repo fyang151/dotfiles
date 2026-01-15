@@ -16,12 +16,12 @@ vim.opt.fillchars = { eob = " " }
 -- sync with system clipboard on focus gain and lost
 -- this resolves slow startup times on WSL2
 -- vim.api.nvim_create_autocmd({ "FocusGained" }, {
---   pattern = { "*" },
---   command = [[call setreg("@", getreg("+"))]],
+-- 	pattern = { "*" },
+-- 	command = [[call setreg("@", getreg("+"))]],
 -- })
 -- vim.api.nvim_create_autocmd({ "FocusGained" }, {
---   pattern = { "*" },
---   command = [[call setreg("@", getreg("+"))]],
+-- 	pattern = { "*" },
+-- 	command = [[call setreg("@", getreg("+"))]],
 -- })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -31,12 +31,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- Evil autosave
+-- evil autosave
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "FocusLost", "BufLeave" }, {
 	pattern = "*",
 	callback = function()
 		if vim.bo.modified and vim.bo.buftype == "" then
 			vim.cmd("silent write")
 		end
+	end,
+})
+
+-- try to use glance for grr
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local buf = args.buf
+		local opts = { buffer = buf, silent = true }
+
+		vim.keymap.set("n", "grr", "<cmd>Glance references<CR>", opts)
 	end,
 })

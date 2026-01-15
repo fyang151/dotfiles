@@ -6,6 +6,7 @@ return {
 				lua = { "stylua" },
 
 				c = { "clang-format" },
+				cpp = { "clang-format" },
 
 				javascript = { "prettierd" },
 				javascriptreact = { "prettierd" },

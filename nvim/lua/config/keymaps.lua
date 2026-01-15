@@ -1,25 +1,27 @@
--- Keymaps
--- no im not joking. this is how i do it. stop hissing.
-vim.keymap.set({ "n", "v" }, "J", "4j", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "K", "4k", { noremap = true, silent = true })
+-- i dont have any reason to allow recursion so im gonna do this
+opts = { noremap = true }
 
-vim.keymap.set("n", "gJ", "J", { noremap = true, silent = true })
-vim.keymap.set("n", "gK", "K", { noremap = true, silent = true })
+-- motions
+-- no im not joking. this is how i do it. stop hissing.
+vim.keymap.set({ "n", "v" }, "J", "4j", opts)
+vim.keymap.set({ "n", "v" }, "K", "4k", opts)
+
+vim.keymap.set("n", "gJ", "J", opts)
+vim.keymap.set("n", "gK", "K", opts)
 
 -- format
 vim.keymap.set("n", "<space>f", function()
 	require("conform").format()
-end)
-
--- open diagnostic float
-vim.keymap.set("n", "<space>h", function()
-	vim.diagnostic.open_float()
-end)
+end, opts)
 
 -- Oil
-vim.keymap.set("n", "<space>o", "<cmd>Oil<CR>")
+vim.keymap.set("n", "<space>o", "<cmd>Oil<CR>", opts)
 
 -- ToggleTerm
 vim.keymap.set({ "n", "t" }, "<C-j>", function()
 	require("toggleterm").toggle()
-end, { noremap = true })
+end, opts)
+
+-- LSP stuff
+-- open diagnostic float
+vim.keymap.set("n", "gh", vim.diagnostic.open_float, opts)
