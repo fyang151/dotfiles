@@ -1,21 +1,21 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      formatters_by_ft = {
-        lua = { "stylua" },
+	{
+		"stevearc/conform.nvim",
+		opts = {
+			formatters_by_ft = {
+				lua = { "stylua" },
 
-        c = { "clang-format" },
+				c = { "clang-format" },
 
-        javascript = { "prettierd" },
-        javascriptreact = { "prettierd" },
+				javascript = { "prettierd" },
+				javascriptreact = { "prettierd" },
 
-        typescript = { "prettierd" },
-        typescriptreact = { "prettierd" },
+				typescript = { "prettierd" },
+				typescriptreact = { "prettierd" },
 
-        -- python = { "isort", "black" },
-      },
-      format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
-    },
-  },
+				-- python = { "isort", "black" },
+			},
+			format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
+		},
+	},
 }
