@@ -1,3 +1,4 @@
+-- Keymaps
 -- no im not joking. this is how i do it. stop hissing.
 vim.keymap.set({ "n", "v" }, "J", "4j", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "K", "4k", { noremap = true, silent = true })
@@ -6,13 +7,19 @@ vim.keymap.set("n", "gJ", "J", { noremap = true, silent = true })
 vim.keymap.set("n", "gK", "K", { noremap = true, silent = true })
 
 -- format
-vim.keymap.set("n", "<space>f", function() require('conform').format() end)
+vim.keymap.set("n", "<space>f", function()
+	require("conform").format()
+end)
 
 -- open diagnostic float
-vim.keymap.set("n", "<space>h", function() vim.diagnostic.open_float() end);
+vim.keymap.set("n", "<space>h", function()
+	vim.diagnostic.open_float()
+end)
 
 -- Oil
-vim.keymap.set("n", "<space>o", "<cmd>Oil<CR>");
+vim.keymap.set("n", "<space>o", "<cmd>Oil<CR>")
 
 -- ToggleTerm
-vim.keymap.set({ "n", "t" }, "<C-j>", function() require("toggleterm").toggle() end, { noremap = true });
+vim.keymap.set({ "n", "t" }, "<C-j>", function()
+	require("toggleterm").toggle()
+end, { noremap = true })
