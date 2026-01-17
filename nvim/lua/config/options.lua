@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "FocusLost", "BufLea
 	pattern = "*",
 	callback = function()
 		if vim.bo.modified and vim.bo.buftype == "" then
-			vim.cmd("silent write")
+			vim.cmd("silent noautocmd write")
 		end
 	end,
 })
