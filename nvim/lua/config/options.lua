@@ -1,14 +1,17 @@
--- TAB
+-- tab
 vim.opt.tabstop = 2
 vim.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
--- UI
+-- ui
 vim.opt.number = true
 vim.opt.showmode = false
 
+-- wrapping stuff
+vim.opt.wrap = true
 vim.opt.breakindent = true
+vim.opt.linebreak = true
 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.fillchars = { eob = " " }
@@ -49,4 +52,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		vim.keymap.set("n", "grr", "<cmd>Glance references<CR>", opts)
 	end,
+})
+
+-- word count and stuff for notes
+vim.api.nvim_create_user_command("CharWordCount", function(opts)
+	local start_line, end_line
+
+	if opts.range == 0 then
+		start_line = 0
+		end_line = -1
+	else
+		start_line = opts.line1 - 1
+		end_line = opts.line2
+	end
+
+	local lines = vim.api.nvim_buf_get_lines(0, start_line, end_line, true)
+	local text = table.concat(lines, "\n")
+
+	local words = 0
+	for _ in text:gmatch("%S+") do
+		words = words + 1
+	end
+
+	local chars = vim.fn.strchars(text)
+
+	print(string.format("%d words · %d chars", words, chars))
+end, {
+	range = true,
 })

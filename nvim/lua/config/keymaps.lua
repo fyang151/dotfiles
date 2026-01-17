@@ -1,5 +1,5 @@
 -- i dont have any reason to allow recursion so im gonna do this
-opts = { noremap = true }
+local opts = { noremap = true }
 
 -- motions
 -- no im not joking. this is how i do it. stop hissing.
