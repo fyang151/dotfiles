@@ -1,2 +1,10 @@
+window_padding_width 10
+
 font_size 16
 font_family Comic Mono
+
+# BEGIN_KITTY_THEME
+include current-theme.conf
+# END_KITTY_THEME
+
+shell_integration no-rc
