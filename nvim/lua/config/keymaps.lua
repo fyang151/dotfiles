@@ -17,11 +17,9 @@ end, opts)
 -- Oil
 vim.keymap.set("n", "<space>o", "<cmd>Oil<CR>", opts)
 
--- ToggleTerm
-vim.keymap.set({ "n", "t" }, "<C-j>", function()
-	require("toggleterm").toggle()
-end, opts)
-
 -- LSP stuff
 -- open diagnostic float
 vim.keymap.set("n", "gh", vim.diagnostic.open_float, opts)
+
+-- Mimic normie deletion
+vim.keymap.set("i", "<C-h>", "<C-w>")

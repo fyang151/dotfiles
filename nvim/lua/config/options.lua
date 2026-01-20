@@ -1,3 +1,6 @@
+-- color
+vim.opt.termguicolors = true
+
 -- tab
 vim.opt.tabstop = 2
 vim.softtabstop = 2
