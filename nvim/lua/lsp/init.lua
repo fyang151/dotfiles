@@ -16,6 +16,7 @@ M.formatters = {
 	"stylua",
 	"clang-format",
 	"prettierd",
+	"kdlfmt",
 }
 
 return M

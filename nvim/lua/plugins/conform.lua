@@ -14,6 +14,8 @@ return {
 				typescript = { "prettierd" },
 				typescriptreact = { "prettierd" },
 
+				kdl = { "kdlfmt" },
+
 				-- python = { "isort", "black" },
 			},
 			format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
