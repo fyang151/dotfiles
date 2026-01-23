@@ -21,5 +21,7 @@ vim.keymap.set("n", "<space>o", "<cmd>Oil<CR>", opts)
 -- open diagnostic float
 vim.keymap.set("n", "gh", vim.diagnostic.open_float, opts)
 
--- Mimic normie deletion
+-- mimic normie deletion for linux
+vim.keymap.set("i", "<C-BS>", "<C-w>")
+-- for windows
 vim.keymap.set("i", "<C-h>", "<C-w>")
