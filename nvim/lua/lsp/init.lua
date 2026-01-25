@@ -10,6 +10,8 @@ M.servers = {
 	},
 	clangd = {},
 	tsgo = {},
+	html = {},
+	emmet_ls = {},
 }
 
 M.formatters = {
