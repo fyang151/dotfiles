@@ -1,7 +1,9 @@
 * {
     font-family: Comic Mono;
-    padding: 1px;
+    padding: 2px;
     padding-bottom: 0px;
-    background-color: transparent;
-    color: black;
+    /* background-color: transparent; */
+    /* color: black; */
+    background-color: black;
+    color: white;
 }
