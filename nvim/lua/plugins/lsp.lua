@@ -9,7 +9,8 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			for server, config in pairs(lsp.servers) do
+			local servers = lsp.get_lsp_servers()
+			for server, config in pairs(servers) do
 				vim.lsp.config(server, {
 					on_attach = lsp.on_attach,
 					settings = config.settings,
@@ -24,7 +25,7 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = vim.tbl_keys(lsp.servers),
+				ensure_installed = vim.tbl_keys(lsp.get_mason_lsp_servers()),
 			})
 		end,
 	},
@@ -33,7 +34,7 @@ return {
 		lazy = false,
 		config = function()
 			require("mason-tool-installer").setup({
-				ensure_installed = lsp.formatters,
+				ensure_installed = lsp.get_formatters(),
 			})
 		end,
 	},
