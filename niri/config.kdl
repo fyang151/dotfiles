@@ -33,13 +33,13 @@ input {
         // drag false
         // drag-lock
         natural-scroll
-        // accel-speed 0.2
+ // accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "two-finger"
         // disabled-on-external-mouse
     }
     mouse {
-        // off
+ // off
         // natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
@@ -47,7 +47,7 @@ input {
 
     }
     trackpoint {
-  // off
+ // off
         // natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
