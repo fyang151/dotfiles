@@ -25,3 +25,8 @@ vim.keymap.set("n", "gh", vim.diagnostic.open_float, opts)
 vim.keymap.set("i", "<C-BS>", "<C-w>")
 -- for windows
 vim.keymap.set("i", "<C-h>", "<C-w>")
+
+-- Buffer navigation (vim-like with space)
+vim.keymap.set("n", "<space>h", ":bprevious<CR>", opts) -- previous buffer (left)
+vim.keymap.set("n", "<space>l", ":bnext<CR>", opts) -- next buffer (right)
+vim.keymap.set("n", "<space>d", ":bdelete<CR>", opts) -- delete/close buffer
